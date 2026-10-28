@@ -1,0 +1,17 @@
+export const MATERIALS = [
+  { value: "PP", label: "Polypropylene (PP)" },
+  { value: "PET", label: "Polyethylene Terephthalate (PET)" },
+  { value: "HDPE", label: "High-Density Polyethylene (HDPE)" },
+  { value: "LDPE", label: "Low-Density Polyethylene (LDPE)" },
+  { value: "PVC", label: "Polyvinyl Chloride (PVC)" },
+  { value: "PS", label: "Polystyrene (PS)" },
+  { value: "PC", label: "Polycarbonate (PC)" },
+  { value: "ABS", label: "Acrylonitrile Butadiene Styrene (ABS)" },
+  { value: "PC/ABS", label: "Polycarbonate/ABS Blend (PC/ABS)" },
+  { value: "PLA", label: "Polylactic Acid (PLA)" },
+  { value: "PA", label: "Polyamide (Nylon, PA)" },
+  { value: "EVA", label: "Ethylene-Vinyl Acetate (EVA)" },
+  { value: "TPU", label: "Thermoplastic Polyurethane (TPU)" },
+  { value: "PBT", label: "Polybutylene Terephthalate (PBT)" },
+  { value: "PMMA", label: "Polymethyl Methacrylate (PMMA)" },
+] as const;
