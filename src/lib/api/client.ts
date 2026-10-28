@@ -7,6 +7,10 @@ import {
   productResponseSchema,
 } from "@/lib/api/types";
 
+export const apiBaseUrl = (
+  process.env.NEXT_PUBLIC_API_URL ?? "https://d3hozjzxl9gfej.cloudfront.net"
+).replace(/\/$/, "");
+
 export class ApiError extends Error {
   readonly status: number;
 
@@ -33,7 +37,7 @@ async function post<T>(
   body: unknown,
   parse: (value: unknown) => T,
 ): Promise<T> {
-  const response = await fetch(path, {
+  const response = await fetch(`${apiBaseUrl}${path}`, {
     method: "POST",
     headers: {
       Accept: "application/json",
@@ -55,7 +59,7 @@ export function createCollaboration(
   input: MaterialRequest,
 ): Promise<CollaborationResponse> {
   return post(
-    "/backend/api/collaborations",
+    "/api/collaborations",
     {
       brand: input.brand,
       plasticType: input.plasticType,
@@ -70,7 +74,7 @@ export function createProducts(
   input: MaterialRequest & { targetBrand: string },
 ): Promise<ProductResponse> {
   return post(
-    "/backend/api/products",
+    "/api/products",
     {
       sourceBrand: input.brand,
       plasticType: input.plasticType,

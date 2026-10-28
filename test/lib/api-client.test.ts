@@ -2,6 +2,7 @@ import { describe, expect, it, vi } from "vitest";
 
 import {
   ApiError,
+  apiBaseUrl,
   createCollaboration,
   createProducts,
   errorMessage,
@@ -64,7 +65,7 @@ describe("createCollaboration", () => {
     const result = await createCollaboration(request);
 
     expect(fetchMock).toHaveBeenCalledWith(
-      "/backend/api/collaborations",
+      `${apiBaseUrl}/api/collaborations`,
       expect.objectContaining({
         method: "POST",
         body: JSON.stringify({
@@ -116,7 +117,7 @@ describe("createProducts", () => {
     const result = await createProducts({ ...request, targetBrand: "Adidas" });
 
     expect(fetchMock).toHaveBeenCalledWith(
-      "/backend/api/products",
+      `${apiBaseUrl}/api/products`,
       expect.objectContaining({
         body: JSON.stringify({
           sourceBrand: "BMW",
