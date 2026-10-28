@@ -10,3 +10,11 @@ npm run ci
 ```
 
 `npm run ci` runs lint, Prettier, the TypeScript check, and Vitest.
+
+## Deployment (AWS Amplify)
+
+Pushing to `main` deploys the app on Amplify Hosting in `eu-central-1` (Next.js SSR). `amplify.yml` uses Node 24, runs `npm ci`, writes `API_URL` into `.env`, then `npm run build`.
+
+| Variable  | Description                                      |
+| --------- | ------------------------------------------------ |
+| `API_URL` | CloudFront API origin, without a trailing slash |
